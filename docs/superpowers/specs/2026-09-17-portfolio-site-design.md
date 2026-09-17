@@ -12,9 +12,8 @@ incrementally, one at a time, after the initial site skeleton is in place.
 ## Hosting & Repo
 
 - Repo: `jramsahai/jramsahai.github.io` (public). The repo must be named
-  exactly this for GitHub to serve it at the apex user URL; the local
-  checkout is currently `ji-portfolio` with no remote, so the remote should
-  be created under that name before the first push.
+  exactly this for GitHub to serve it at the apex user URL. Local checkout:
+  `~/github/jramsahai.github.io`.
 - Hosting: GitHub Pages, "Deploy from a branch", `main` branch, `/ (root)`
   folder. No GitHub Actions workflow to maintain.
 - Live URL: `https://jramsahai.github.io`.
