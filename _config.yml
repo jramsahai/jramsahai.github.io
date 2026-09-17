@@ -1,0 +1,5 @@
+# GitHub Pages runs Jekyll on every push. This site does not use Jekyll for
+# templating; this file only keeps non-site files out of the published output.
+exclude:
+  - docs/
+  - README.md
