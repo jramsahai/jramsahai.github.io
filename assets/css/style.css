@@ -1,0 +1,350 @@
+/* ==========================================================================
+   Tokens
+   ========================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  --bg: #0A0A0A;
+  --bg-raised: #141414;
+  --fg: #F5F5F5;
+  --fg-soft: #C9C9C9;
+  --fg-muted: #9A9A9A;
+  --line: #262626;
+  --blue: #3388FF;
+  --amber: #F5A524;
+
+  --font-sans: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --measure: 64ch;
+  --container: 1080px;
+  --gutter: 1.5rem;
+
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 6rem;
+}
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/bricolage-grotesque-latin-wght-normal.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("/assets/fonts/instrument-serif-latin-400-italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--blue);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  color: var(--fg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--blue);
+  color: var(--bg);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+  max-width: var(--measure);
+}
+
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.site-header {
+  padding-block: var(--space-3);
+}
+
+.site-header a {
+  color: var(--fg);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+.site-header a:hover {
+  color: var(--blue);
+}
+
+main {
+  padding-block: var(--space-4) var(--space-6);
+}
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding-block: var(--space-3) var(--space-4);
+  color: var(--fg-muted);
+  font-size: 0.9375rem;
+}
+
+.site-footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-3);
+}
+
+.site-footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.site-footer a {
+  color: var(--fg-muted);
+}
+
+.site-footer a:hover {
+  color: var(--fg);
+}
+
+/* ==========================================================================
+   Hero and text
+   ========================================================================== */
+
+.hero {
+  padding-block: var(--space-4) var(--space-5);
+}
+
+.hero h1 {
+  font-size: clamp(2.75rem, 7.5vw, 6rem);
+  max-width: 18ch;
+}
+
+.hero-compact {
+  padding-block: var(--space-2) var(--space-4);
+}
+
+.hero-compact h1 {
+  font-size: clamp(2.25rem, 6vw, 4.5rem);
+  max-width: 20ch;
+}
+
+.lede {
+  margin-top: var(--space-3);
+  max-width: 36ch;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.375rem, 2.4vw, 1.875rem);
+  line-height: 1.3;
+  color: var(--fg-soft);
+}
+
+.section {
+  padding-block: var(--space-5) 0;
+}
+
+.section h2 {
+  margin-bottom: var(--space-3);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.prose > * + * {
+  margin-top: var(--space-2);
+}
+
+.prose h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.prose > * + h2 {
+  margin-top: var(--space-5);
+}
+
+.empty {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--fg-muted);
+}
+
+/* ==========================================================================
+   Project grid (landing page)
+   ========================================================================== */
+
+.project-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.project-card {
+  background: var(--bg);
+}
+
+.project-card a {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  height: 100%;
+  padding: var(--space-3);
+  color: inherit;
+  text-decoration: none;
+}
+
+.project-card h3 {
+  font-size: 1.375rem;
+  letter-spacing: -0.02em;
+}
+
+.project-card p {
+  font-size: 0.9375rem;
+  color: var(--fg-muted);
+}
+
+.tag {
+  margin-top: auto;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+
+[data-tag="vidyard"] .tag,
+[data-tag="vidyard"].tag,
+li[data-tag="vidyard"] {
+  color: var(--blue);
+}
+
+[data-tag="personal"] .tag,
+[data-tag="personal"].tag,
+li[data-tag="personal"] {
+  color: var(--amber);
+}
+
+.project-card a:hover {
+  background: var(--bg-raised);
+}
+
+.project-card[data-tag="vidyard"] a:hover h3 {
+  color: var(--blue);
+}
+
+.project-card[data-tag="personal"] a:hover h3 {
+  color: var(--amber);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .project-card a {
+    transition: background-color 150ms ease;
+  }
+
+  .project-card h3 {
+    transition: color 150ms ease;
+  }
+}
+
+/* ==========================================================================
+   Project page
+   ========================================================================== */
+
+.project-meta {
+  list-style: none;
+  margin: var(--space-3) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--fg-muted);
+}
+
+figure {
+  margin: var(--space-4) 0;
+}
+
+figure img {
+  border: 1px solid var(--line);
+}
+
+figcaption {
+  margin-top: var(--space-1);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--fg-muted);
+}
+
+.back {
+  display: inline-block;
+  margin-top: var(--space-5);
+}
