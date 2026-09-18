@@ -244,13 +244,14 @@ main {
   padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
 }
 
 .project-card {
   background: var(--bg);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
 .project-card a {
@@ -279,15 +280,13 @@ main {
   font-size: 0.8125rem;
 }
 
-[data-tag="vidyard"] .tag,
-[data-tag="vidyard"].tag,
-li[data-tag="vidyard"] {
+.project-card[data-tag="vidyard"] .tag,
+.project-meta li[data-tag="vidyard"] {
   color: var(--blue);
 }
 
-[data-tag="personal"] .tag,
-[data-tag="personal"].tag,
-li[data-tag="personal"] {
+.project-card[data-tag="personal"] .tag,
+.project-meta li[data-tag="personal"] {
   color: var(--amber);
 }
 
