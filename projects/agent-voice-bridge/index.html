@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent Voice Bridge</title>
+  <meta name="description" content="Talk to a local AI agent CLI by voice from any device on your network, with speech kept entirely local">
+  <link rel="canonical" href="https://jramsahai.github.io/projects/agent-voice-bridge/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Agent Voice Bridge">
+  <meta property="og:description" content="Talk to a local AI agent CLI by voice from any device on your network, with speech kept entirely local">
+  <meta property="og:url" content="https://jramsahai.github.io/projects/agent-voice-bridge/">
+  <meta property="og:image" content="https://jramsahai.github.io/assets/images/og-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/">Jivan Ramsahai - Portfolio</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <article>
+      <header class="hero hero-compact">
+        <h1>Agent Voice Bridge</h1>
+        <p class="lede">Talk to a local AI agent CLI by voice from any device on your network, with speech kept entirely local</p>
+        <ul class="project-meta">
+          <li data-tag="personal">Personal</li>
+          <li>Builder</li>
+          <li>2026</li>
+          <li class="badge-ai">AI project</li>
+          <li><a href="https://github.com/jramsahai/agent-voice-bridge">Source on GitHub</a></li>
+        </ul>
+      </header>
+
+      <div class="prose">
+        <h2>The problem</h2>
+        <p>AI agent CLIs are powerful but keyboard-bound: you have to be sitting at the machine that runs them to use them. There was no way to just speak to one from a phone or another device, and pointing a microphone at a cloud speech service to get there would mean sending everything you say to a third party. I wanted a voice interface that worked from anywhere on my own network without any of that trade-off.</p>
+
+        <h2>The solution</h2>
+        <p>Agent Voice Bridge is a push-to-talk voice client paired with a local bridge service that runs on the same machine as the agent. You speak into a browser (or a bare command-line client), the bridge transcribes the audio locally, hands the text to the agent CLI, and speaks the reply back. The whole thing runs on your own hardware and is reachable only over Tailscale, so nothing leaves your network and nothing needs to be exposed publicly to use it from a phone or laptop elsewhere.</p>
+        <p>Each agent CLI is supported through a single small adapter, so no agent-specific logic leaks into the rest of the bridge; adding a new agent means writing one adapter file, not touching the core service. One choice that made spoken replies noticeably better: instead of injecting a fake system prompt into every turn, the bridge primes the voice session once with instructions to keep replies brief and speech-friendly, then sends plain transcript text on every turn after that. Replies are also run through a cleanup pass that strips markdown and other formatting before they reach the text-to-speech engine, while the client still gets the raw text for display.</p>
+        <p>Before any dedicated hardware existed, I defined a versioned HTTP API and wrote a bare reference CLI client against it with no browser, no JavaScript, and no audio codecs, just raw HTTP and PCM buffers. Getting that client to complete a full voice turn proved the API contract on its own, ahead of building anything a person would actually hold.</p>
+
+        <h2>Tech stack</h2>
+        <p>A Node.js bridge service coordinates local speech-to-text, agent adapters, and swappable text-to-speech backends, fronted by a browser client and reachable only over a private tailnet. It is macOS only for now, since it shells out to macOS-specific audio and speech tools.</p>
+        <ul class="stack">
+          <li>Node.js</li>
+          <li>FastAPI</li>
+          <li>Python</li>
+          <li>whisper.cpp</li>
+          <li>Kokoro ONNX</li>
+          <li>macOS</li>
+          <li>Tailscale</li>
+        </ul>
+      </div>
+
+      <a class="back" href="/#projects-heading">Back to all projects</a>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul>
+        <li><a href="https://www.linkedin.com/in/jramsahai/">LinkedIn</a></li>
+        <li><a href="https://github.com/jramsahai">GitHub</a></li>
+      </ul>
+      <p>&copy; 2026 Jivan Ramsahai</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wayfinder</title>
+  <meta name="description" content="Jump to the exact moment in a video by asking for it, then search and chat across an entire video library">
+  <link rel="canonical" href="https://jramsahai.github.io/projects/wayfinder/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Wayfinder">
+  <meta property="og:description" content="Jump to the exact moment in a video by asking for it, then search and chat across an entire video library">
+  <meta property="og:url" content="https://jramsahai.github.io/projects/wayfinder/">
+  <meta property="og:image" content="https://jramsahai.github.io/assets/images/og-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/">Jivan Ramsahai - Portfolio</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <article>
+      <header class="hero hero-compact">
+        <h1>Wayfinder</h1>
+        <p class="lede">Jump to the exact moment in a video by asking for it, then search and chat across an entire video library</p>
+        <ul class="project-meta">
+          <li data-tag="vidyard">Vidyard</li>
+          <li>Product manager</li>
+          <li>2026</li>
+          <li class="badge-ai">AI project</li>
+        </ul>
+      </header>
+
+      <div class="prose">
+        <h2>The problem</h2>
+        <p>Video demos are made to be watched start to finish, but viewers usually want one specific part: the pricing screen, the integration step, the feature someone mentioned. Scrubbing through a timeline to find it is slow, and it gets worse once there are dozens of videos to search through instead of one.</p>
+
+        <h2>The solution</h2>
+        <p>I started with a chat panel next to Vidyard's video player. A viewer types a question like "show me the reporting feature," and an LLM agent reads the video's transcript to find the matching moments. It returns those moments as references into the transcript rather than raw timestamps, and the backend checks each one against the real transcript before trusting it, so the video can only ever jump to a moment that actually exists. Matches show up as clickable buttons; clicking one seeks the player to that point, plays it, and pauses automatically when the relevant part ends.</p>
+        <p>The follow-on prototype extends the same idea from one video to an entire indexed video library. Instead of reasoning over a single transcript, a tool-calling agent can search across the whole library and return a conversational answer with clickable video cards that deep-link straight to the right timestamp in the right video, turning a library of recordings into something you can ask questions of directly.</p>
+
+        <h2>Tech stack</h2>
+        <p>A TypeScript frontend renders the chat panel and drives the video player, while a Python backend handles the language model calls and validates every result before it reaches the browser. The library version adds a vector store behind the search tool so the agent can retrieve relevant videos instead of just relevant moments in one.</p>
+        <ul class="stack">
+          <li>TypeScript</li>
+          <li>Vite</li>
+          <li>FastAPI</li>
+          <li>Python</li>
+          <li>OpenAI</li>
+          <li>Vidyard Player API</li>
+          <li>Vector search</li>
+        </ul>
+      </div>
+
+      <a class="back" href="/#projects-heading">Back to all projects</a>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul>
+        <li><a href="https://www.linkedin.com/in/jramsahai/">LinkedIn</a></li>
+        <li><a href="https://github.com/jramsahai">GitHub</a></li>
+      </ul>
+      <p>&copy; 2026 Jivan Ramsahai</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Barcode Critters</title>
+  <meta name="description" content="A scan-to-collect creature game that turns a real product barcode into a creature, built for a numbers-loving kid">
+  <link rel="canonical" href="https://jramsahai.github.io/projects/barcode-critters/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Barcode Critters">
+  <meta property="og:description" content="A scan-to-collect creature game that turns a real product barcode into a creature, built for a numbers-loving kid">
+  <meta property="og:url" content="https://jramsahai.github.io/projects/barcode-critters/">
+  <meta property="og:image" content="https://jramsahai.github.io/assets/images/og-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/">Jivan Ramsahai - Portfolio</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <article>
+      <header class="hero hero-compact">
+        <h1>Barcode Critters</h1>
+        <p class="lede">A scan-to-collect creature game that turns a real product barcode into a creature, built for a numbers-loving kid</p>
+        <ul class="project-meta">
+          <li data-tag="personal">Personal</li>
+          <li>Builder</li>
+          <li>2026</li>
+        </ul>
+      </header>
+
+      <div class="prose">
+        <h2>The problem</h2>
+        <p>Collector-style games for kids are usually built around randomness or in-app purchases, which does not reward paying attention or doing math. I have a numbers-loving 7-year-old who is into flags and geography, and wanted a game built from things already lying around the house rather than a loot table. A product barcode is already a small, checkable math problem, but nobody ever looks at it that way.</p>
+
+        <h2>The solution</h2>
+        <p>Barcode Critters is a scan-to-collect game where every real product barcode determines a creature. Scanning a barcode, or typing its digits on a number pad, triggers the Number Spectacle: the digits appear one at a time, each gets its official EAN-13 weight, the running sum builds on screen, and the check-digit formula resolves in front of you before the digits turn into a creature. The barcode's own math is the proof that the creature is legitimate, and a kid who scans enough of them starts predicting the last digit before the animation gets there.</p>
+
+        <p>Every part of a creature comes from the barcode itself rather than a random seed: stats are sums of digit groups, element comes from a digit sum, rarity comes from the check digit, and homeland comes from the real GS1 country prefix encoded in the first digits. Every formula that produces those values is printed on the creature's card, so nothing is asserted without being checkable by hand. Scanning the same product always produces the same creature, which matters more for trust than for gameplay.</p>
+
+        <p>Feeding a critter the real food it came from increases its power on a curve that eases off with repeat servings but never bottoms out at zero, so there is always a reason to feed a favorite again. There are no timers, no hunger, and no decay, and nothing a kid can do to lose a creature short of releasing it on purpose, and because generation is deterministic, releasing and rescanning just brings the same creature back. Product enrichment such as name and photo loads in the background after the reveal, so a slow connection never holds up the moment the creature appears.</p>
+
+        <h2>Tech stack</h2>
+        <p>The app is a client-only, offline-first PWA: the deterministic game logic runs entirely on device, camera scanning falls back gracefully when the browser's native barcode API is unavailable, and product data is layered in afterward from a public catalog.</p>
+        <ul class="stack">
+          <li>TypeScript</li>
+          <li>React</li>
+          <li>Vite</li>
+          <li>Dexie</li>
+          <li>Framer Motion</li>
+          <li>BarcodeDetector API</li>
+          <li>Workbox PWA</li>
+          <li>Open Food Facts</li>
+          <li>Railway</li>
+        </ul>
+      </div>
+
+      <a class="back" href="/#projects-heading">Back to all projects</a>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul>
+        <li><a href="https://www.linkedin.com/in/jramsahai/">LinkedIn</a></li>
+        <li><a href="https://github.com/jramsahai">GitHub</a></li>
+      </ul>
+      <p>&copy; 2026 Jivan Ramsahai</p>
+    </div>
+  </footer>
+</body>
+</html>

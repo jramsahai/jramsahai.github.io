@@ -21,38 +21,139 @@
 <body>
   <header class="site-header">
     <div class="container">
-      <a href="/">Jivan Ramsahai</a>
+      <a href="/">Jivan Ramsahai - Portfolio</a>
     </div>
   </header>
 
   <main class="container">
-    <section class="hero">
-      <h1>Product manager at Vidyard. Builder of side projects.</h1>
-      <p class="lede">A record of what I have shipped, at work and on my own time, and what I learned doing it.</p>
-    </section>
+    <!-- <section class="hero">
+      <h1>Curious by nature.</h1>
+      <p class="lede">I learn by building things to see what happens.</p>
+    </section> -->
 
     <section class="section prose" aria-labelledby="about-heading">
-      <h2 id="about-heading">About</h2>
-      <p>I am Jivan Ramsahai. At Vidyard I work on video tools for go-to-market teams: figuring out what to build, why, and how to tell whether it worked. Outside work I build small software projects to learn things a roadmap cannot teach me.</p>
-      <p>Each project below has its own page covering what it is, what I did, and how it turned out. Work projects stay high level; the interesting parts are usually the decisions, not the details.</p>
+      <h2 id="about-heading">About Me</h2>
+      <p>Hi, I'm Ji Ramsahai, a product manager at Vidyard. Building with AI, I use functional prototypes to validate new ideas with customers and explore new technologies in the process. I've also built a number of small personal software projects outside to expand my knowledge into new areas and (hopefully) deliver some joy and utility to those around me.</p>
+      <ul class="social">
+        <li>
+          <a href="https://www.linkedin.com/in/jramsahai/">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/jramsahai">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            GitHub
+          </a>
+        </li>
+      </ul>
     </section>
 
     <section class="section" aria-labelledby="projects-heading">
       <h2 id="projects-heading">Projects</h2>
-      <p class="empty">Project pages are being added one at a time. The first one is on its way.</p>
-      <!--
-        When the first project is added, replace the paragraph above with a
-        <ul class="project-grid"> and copy the card snippet from
-        docs/templates/project-page.html into it.
-      -->
+      <ul class="project-grid">
+        <li class="project-card" data-tag="vidyard">
+          <a href="/projects/wayfinder/">
+            <h3>Wayfinder</h3>
+            <p>Jump to the exact moment in a video by asking for it, then search and chat across an entire video library</p>
+            <div class="card-tags">
+              <span class="tag">Vidyard</span>
+              <span class="badge-ai">AI</span>
+            </div>
+          </a>
+        </li>
+        <li class="project-card" data-tag="personal">
+          <a href="/projects/obsidian-second-brain/">
+            <h3>Obsidian Second Brain</h3>
+            <p>An AI agent that captures, files, links, and reviews notes in an Obsidian vault instead of manual filing</p>
+            <div class="card-tags">
+              <span class="tag">Personal</span>
+              <span class="badge-ai">AI</span>
+            </div>
+          </a>
+        </li>
+        <li class="project-card" data-tag="personal">
+          <a href="/projects/agent-voice-bridge/">
+            <h3>Agent Voice Bridge</h3>
+            <p>Talk to a local AI agent CLI by voice from any device on your network, with speech kept entirely local</p>
+            <div class="card-tags">
+              <span class="tag">Personal</span>
+              <span class="badge-ai">AI</span>
+            </div>
+          </a>
+        </li>
+        <li class="project-card" data-tag="vidyard">
+          <a href="/projects/view-explorer/">
+            <h3>View Explorer</h3>
+            <p>A graph explorer that shows how viewers move between videos in an internal video library</p>
+            <div class="card-tags">
+              <span class="tag">Vidyard</span>
+            </div>
+          </a>
+        </li>
+        <li class="project-card" data-tag="vidyard">
+          <a href="/projects/video-impact-reports/">
+            <h3>Video Impact Reports</h3>
+            <p>An analysis toolkit measuring how video views influence sales deals, joining Vidyard views with HubSpot CRM data</p>
+            <div class="card-tags">
+              <span class="tag">Vidyard</span>
+            </div>
+          </a>
+        </li>
+        <li class="project-card" data-tag="personal">
+          <a href="/projects/lego-bluetooth-bridge/">
+            <h3>LEGO Bluetooth Bridge</h3>
+            <p>An ESP32 bridge that drives a LEGO Powered Up car over Bluetooth from any input device you choose</p>
+            <div class="card-tags">
+              <span class="tag">Personal</span>
+            </div>
+          </a>
+        </li>
+        <li class="project-card" data-tag="personal">
+          <a href="/projects/barcode-critters/">
+            <h3>Barcode Critters</h3>
+            <p>A scan-to-collect creature game that turns a real product barcode into a creature, built for a numbers-loving kid</p>
+            <div class="card-tags">
+              <span class="tag">Personal</span>
+            </div>
+          </a>
+        </li>
+        <li class="project-card" data-tag="vidyard">
+          <a href="/projects/slack-unfurl/">
+            <h3>Slack Video Unfurler</h3>
+            <p>A Slack bot that turns pasted Vidyard links into rich, playable video previews</p>
+            <div class="card-tags">
+              <span class="tag">Vidyard</span>
+            </div>
+          </a>
+        </li>
+        <li class="project-card" data-tag="personal">
+          <a href="/projects/nerd-night/">
+            <h3>Nerd Night</h3>
+            <p>A mobile-first app that helps a friend group pick a date for a get-together, no accounts needed</p>
+            <div class="card-tags">
+              <span class="tag">Personal</span>
+            </div>
+          </a>
+        </li>
+        <li class="project-card" data-tag="personal">
+          <a href="/projects/blasterscribe/">
+            <h3>Blasterscribe</h3>
+            <p>An app for foam-dart blaster hobbyists to catalog their collection and log chronograph sessions shot by shot</p>
+            <div class="card-tags">
+              <span class="tag">Personal</span>
+            </div>
+          </a>
+        </li>
+      </ul>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
       <ul>
-        <li><a href="mailto:you@example.com">Email</a></li>
-        <li><a href="https://www.linkedin.com/in/your-handle">LinkedIn</a></li>
+        <li><a href="https://www.linkedin.com/in/jramsahai/">LinkedIn</a></li>
         <li><a href="https://github.com/jramsahai">GitHub</a></li>
       </ul>
       <p>&copy; 2026 Jivan Ramsahai</p>

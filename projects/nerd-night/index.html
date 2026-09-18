@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nerd Night</title>
+  <meta name="description" content="A mobile-first app that helps a friend group pick a date for a get-together, no accounts needed">
+  <link rel="canonical" href="https://jramsahai.github.io/projects/nerd-night/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Nerd Night">
+  <meta property="og:description" content="A mobile-first app that helps a friend group pick a date for a get-together, no accounts needed">
+  <meta property="og:url" content="https://jramsahai.github.io/projects/nerd-night/">
+  <meta property="og:image" content="https://jramsahai.github.io/assets/images/og-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/">Jivan Ramsahai - Portfolio</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <article>
+      <header class="hero hero-compact">
+        <h1>Nerd Night</h1>
+        <p class="lede">A mobile-first app that helps a friend group pick a date for a get-together, no accounts needed</p>
+        <ul class="project-meta">
+          <li data-tag="personal">Personal</li>
+          <li>Builder</li>
+          <li>2026</li>
+        </ul>
+      </header>
+
+      <div class="prose">
+        <h2>The problem</h2>
+        <p>Picking a date for a group hangout usually turns into a long, messy back-and-forth in a group chat, with everyone repeating their availability and no clear view of where things actually land. Most scheduling tools make this worse by asking each person to create an account or fill out a form just to say which of a handful of dates work for them.</p>
+
+        <h2>The solution</h2>
+        <p>Nerd Night lets one person set up an event with a short list of candidate dates and share a single link with the group. Anyone with the link joins by typing their name and tapping the dates that work for them, no account required, and everyone watching the link sees results update live as votes come in.</p>
+
+        <p>One deliberate choice: the organizer manages the event, closing voting, renaming it, deleting it, through a cookie-based admin session rather than an admin token embedded in the shared link. A token in the URL ends up sitting in browser history, where anyone with access to the device could find it; a cookie-based session avoids that. Participant names are encrypted at rest, and abuse prevention relies on rate limiting rather than requiring anyone to sign up. Events that go quiet clean themselves up automatically after 90 days.</p>
+
+        <h2>Tech stack</h2>
+        <p>A React front end talks to Firebase Cloud Functions for all writes, with Cloud Firestore as the data store and Firebase Hosting serving the app. A custom touch-friendly calendar handles multi-date selection, since off-the-shelf date pickers don't handle mobile multi-select well.</p>
+        <ul class="stack">
+          <li>TypeScript</li>
+          <li>React</li>
+          <li>Vite</li>
+          <li>Firebase Cloud Functions</li>
+          <li>Cloud Firestore</li>
+          <li>Firebase Hosting</li>
+          <li>Vitest</li>
+          <li>Playwright</li>
+        </ul>
+      </div>
+
+      <a class="back" href="/#projects-heading">Back to all projects</a>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul>
+        <li><a href="https://www.linkedin.com/in/jramsahai/">LinkedIn</a></li>
+        <li><a href="https://github.com/jramsahai">GitHub</a></li>
+      </ul>
+      <p>&copy; 2026 Jivan Ramsahai</p>
+    </div>
+  </footer>
+</body>
+</html>

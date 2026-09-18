@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>View Explorer</title>
+  <meta name="description" content="A graph explorer that shows how viewers move between videos in an internal video library">
+  <link rel="canonical" href="https://jramsahai.github.io/projects/view-explorer/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="View Explorer">
+  <meta property="og:description" content="A graph explorer that shows how viewers move between videos in an internal video library">
+  <meta property="og:url" content="https://jramsahai.github.io/projects/view-explorer/">
+  <meta property="og:image" content="https://jramsahai.github.io/assets/images/og-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/">Jivan Ramsahai - Portfolio</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <article>
+      <header class="hero hero-compact">
+        <h1>View Explorer</h1>
+        <p class="lede">A graph explorer that shows how viewers move between videos in an internal video library</p>
+        <ul class="project-meta">
+          <li data-tag="vidyard">Vidyard</li>
+          <li>Product manager</li>
+          <li>2026</li>
+        </ul>
+      </header>
+
+      <div class="prose">
+        <h2>The problem</h2>
+        <p>A video library is usually browsed one video at a time, through search or folders, which makes it hard to see the bigger picture: which videos actually lead viewers to which other videos, and why. Watch counts and completion rates describe a single video in isolation, but they don't show the paths people take across a library, or which videos quietly serve as the entry point into it.</p>
+
+        <h2>The solution</h2>
+        <p>I built a graph where nodes are videos and edges are the real transitions viewers made between them, weighted by engagement depth rather than a simple click count: a blend of how much of the video was watched, the longest continuous viewing streak, and overall attention. The graph renders in both 2D and 3D, with a toggle between the two, and nodes that act as entry points into the library are marked with a halo, brighter for videos that attract more first-time viewers. Clicking a node opens an ego-graph focused on it, with an inline video player at the top of the detail panel and lists of the videos that feed into it and the videos viewers go to next.</p>
+        <p>One deliberate choice was to keep only one video playing at a time: selecting a new node remounts the player against that video, paused on its poster frame, rather than letting multiple players accumulate. A pruning slider also lets you dial low-weight edges back into view, which is how you find bridge videos, the ones that otherwise look like they belong to a single cluster but actually connect two separate parts of the library.</p>
+
+        <h2>Tech stack</h2>
+        <p>An ingest step turns raw viewing data into a graph artifact, which a small web app then renders as an interactive, WebGL-based visualization with an embedded video player.</p>
+        <ul class="stack">
+          <li>Python</li>
+          <li>uv</li>
+          <li>TypeScript</li>
+          <li>Node.js</li>
+          <li>WebGL</li>
+          <li>Vidyard player embed</li>
+          <li>just</li>
+        </ul>
+      </div>
+
+      <a class="back" href="/#projects-heading">Back to all projects</a>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul>
+        <li><a href="https://www.linkedin.com/in/jramsahai/">LinkedIn</a></li>
+        <li><a href="https://github.com/jramsahai">GitHub</a></li>
+      </ul>
+      <p>&copy; 2026 Jivan Ramsahai</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -6,30 +6,39 @@
   2. Replace every PROJECT TITLE, ONE-LINE DESCRIPTION, <slug>, YEAR, and the
      body paragraphs. Keep the three h2 headings.
   3. In the project-meta list, set data-tag to "vidyard" or "personal" and
-     the visible text to "Vidyard" or "Personal".
-  4. Update <title>, description, canonical, og:url, og:title,
+     the visible text to "Vidyard" or "Personal". The role item is
+     "Product manager" for Vidyard projects and "Builder" for personal ones.
+  4. AI projects (a model is part of the solution, not just a build tool):
+     keep the <li class="badge-ai">AI project</li> item. Otherwise delete it.
+  5. Public repos: keep the "Source on GitHub" item and point it at the repo.
+     Private repos: delete the item. Never link to a private repo.
+  6. Update <title>, description, canonical, og:url, og:title,
      og:description. Point og:image at a project screenshot if there is one,
      otherwise leave og-default.png.
-  5. Put images in /assets/images/<slug>/ as WebP exported at 2x, under
+  7. Put images in /assets/images/<slug>/ as WebP exported at 2x, under
      300 KB each, with width and height attributes set to the file's pixel
-     size. Images below the first screen get loading="lazy".
-  6. Add a card to the <ul class="project-grid"> in /index.html. If this is
-     the first project, create the list and delete the <p class="empty">.
-     Card markup:
+     size. Images below the first screen get loading="lazy". Delete the
+     <figure> if there is no image yet.
+  8. Add a card to the <ul class="project-grid"> in /index.html. Cards are
+     hand-ordered, most impressive first. Card markup (drop the badge-ai span
+     for non-AI projects):
 
      <li class="project-card" data-tag="vidyard">
        <a href="/projects/<slug>/">
          <h3>PROJECT TITLE</h3>
          <p>ONE-LINE DESCRIPTION</p>
-         <span class="tag">Vidyard</span>
+         <div class="card-tags">
+           <span class="tag">Vidyard</span>
+           <span class="badge-ai">AI</span>
+         </div>
        </a>
      </li>
 
-  7. Vidyard projects: keep text and screenshots generic unless the site
+  9. Vidyard projects: keep text and screenshots generic unless the site
      owner has approved more detail for this specific project. Screenshots of
-     internal tools, customer names, metrics, or unreleased UI need the same
-     approval as text.
-  8. Delete this comment block from the copy.
+     internal tools, customer names, metrics, internal hostnames, or
+     unreleased UI need the same approval as text.
+  10. Delete this comment block from the copy.
 -->
 <!doctype html>
 <html lang="en">
@@ -54,7 +63,7 @@
 <body>
   <header class="site-header">
     <div class="container">
-      <a href="/">Jivan Ramsahai</a>
+      <a href="/">Jivan Ramsahai - Portfolio</a>
     </div>
   </header>
 
@@ -67,23 +76,30 @@
           <li data-tag="vidyard">Vidyard</li>
           <li>Product manager</li>
           <li>YEAR</li>
+          <li class="badge-ai">AI project</li>
+          <li><a href="https://github.com/jramsahai/<repo>">Source on GitHub</a></li>
         </ul>
       </header>
 
       <div class="prose">
-        <h2>What it is</h2>
-        <p>Two or three sentences on the problem and the thing that was built to address it. Written for someone who has never heard of it.</p>
+        <h2>The problem</h2>
+        <p>Two or three sentences on the situation and why it needed solving. Written for someone who has never heard of it.</p>
 
         <figure>
           <img src="/assets/images/<slug>/cover.webp" width="1600" height="1000" alt="Describe what the screenshot shows, in one sentence.">
           <figcaption>One line of context for the image.</figcaption>
         </figure>
 
-        <h2>My role</h2>
-        <p>What you personally did: the decisions you owned, who you worked with, and what you were responsible for.</p>
+        <h2>The solution</h2>
+        <p>What was built and how it addresses the problem. Two or three short paragraphs at most.</p>
 
-        <h2>Outcomes</h2>
-        <p>How it turned out. Shipped or not, what changed, what you would do differently. Public numbers only unless approved.</p>
+        <h2>Tech stack</h2>
+        <p>One or two sentences on the shape of the system and the notable technical choices.</p>
+        <ul class="stack">
+          <li>Language or framework</li>
+          <li>Backend or service</li>
+          <li>Hosting</li>
+        </ul>
       </div>
 
       <a class="back" href="/#projects-heading">Back to all projects</a>
@@ -93,8 +109,7 @@
   <footer class="site-footer">
     <div class="container">
       <ul>
-        <li><a href="mailto:you@example.com">Email</a></li>
-        <li><a href="https://www.linkedin.com/in/your-handle">LinkedIn</a></li>
+        <li><a href="https://www.linkedin.com/in/jramsahai/">LinkedIn</a></li>
         <li><a href="https://github.com/jramsahai">GitHub</a></li>
       </ul>
       <p>&copy; 2026 Jivan Ramsahai</p>

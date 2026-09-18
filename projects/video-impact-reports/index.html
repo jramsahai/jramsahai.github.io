@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Video Impact Reports</title>
+  <meta name="description" content="An analysis toolkit measuring how video views influence sales deals, joining Vidyard views with HubSpot CRM data">
+  <link rel="canonical" href="https://jramsahai.github.io/projects/video-impact-reports/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Video Impact Reports">
+  <meta property="og:description" content="An analysis toolkit measuring how video views influence sales deals, joining Vidyard views with HubSpot CRM data">
+  <meta property="og:url" content="https://jramsahai.github.io/projects/video-impact-reports/">
+  <meta property="og:image" content="https://jramsahai.github.io/assets/images/og-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/">Jivan Ramsahai - Portfolio</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <article>
+      <header class="hero hero-compact">
+        <h1>Video Impact Reports</h1>
+        <p class="lede">An analysis toolkit measuring how video views influence sales deals, joining Vidyard views with HubSpot CRM data</p>
+        <ul class="project-meta">
+          <li data-tag="vidyard">Vidyard</li>
+          <li>Product manager</li>
+          <li>2025</li>
+        </ul>
+      </header>
+
+      <div class="prose">
+        <h2>The problem</h2>
+        <p>Sales and marketing teams create and share a lot of video, but the view data lives in Vidyard's platform while deal data lives in a separate CRM. Without a way to line the two up, it's hard to say whether video is actually helping close business or just a nice-to-have that everyone assumes is working.</p>
+
+        <h2>The solution</h2>
+        <p>I built an analysis toolkit that joins video view data with CRM exports (contacts, companies, and deals) to answer a handful of concrete questions: did a deal have video views before it progressed, how does pipeline created from video compare to revenue actually closed, which videos and which reps are most associated with influenced deals, and how do AI-generated avatar videos compare to conventionally recorded ones. A deal counts as video-influenced if a known contact viewed a video within a 30-day window running from before the deal was created through its close date, simple enough to explain to a stakeholder in one sentence.</p>
+        <p>Since view data is an imperfect proxy and reasonable people can disagree about attribution rules, I paired the analysis with a validation suite that checks the numbers against known, hand-verified examples before anything goes to a stakeholder. I also chose to render the output as self-contained HTML dashboards with no external dependencies, so a report can be handed to someone as a single file and opened offline.</p>
+
+        <h2>Tech stack</h2>
+        <p>The pipeline is a set of Python scripts that load CSV exports, join them into one dataset, run a validation suite, and generate a set of self-contained HTML dashboards with inline SVG charts, with no server or JavaScript framework required.</p>
+        <ul class="stack">
+          <li>Python</li>
+          <li>CSV</li>
+          <li>Vidyard</li>
+          <li>HubSpot CRM</li>
+          <li>SVG</li>
+          <li>HTML dashboards</li>
+        </ul>
+      </div>
+
+      <a class="back" href="/#projects-heading">Back to all projects</a>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul>
+        <li><a href="https://www.linkedin.com/in/jramsahai/">LinkedIn</a></li>
+        <li><a href="https://github.com/jramsahai">GitHub</a></li>
+      </ul>
+      <p>&copy; 2026 Jivan Ramsahai</p>
+    </div>
+  </footer>
+</body>
+</html>
