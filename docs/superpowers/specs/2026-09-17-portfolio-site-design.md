@@ -82,13 +82,17 @@ project page has the same skeleton, head tags, and chrome.
 │   ├── css/
 │   │   └── style.css
 │   ├── fonts/                  self-hosted woff2 (if not using a system stack)
-│   ├── images/
-│   │   ├── og-default.png      1200x630 social preview image
-│   │   └── <project-slug>/     per-project screenshots/media
-│   └── favicon.svg             plus favicon.ico and apple-touch-icon.png at root
+│   └── images/
+│       ├── og-default.png      1200x630 social preview image
+│       └── <project-slug>/     per-project screenshots/media
+├── favicon.svg
+├── favicon-32.png
+├── apple-touch-icon.png
 └── docs/
     ├── templates/
-    │   └── project-page.html   starting point for new project pages
+    │   ├── project-page.html   starting point for new project pages
+    │   ├── icon.html           source rendered to the PNG icons
+    │   └── og-default.html     source rendered to og-default.png
     └── superpowers/specs/      design docs (this file)
 ```
 
@@ -141,7 +145,9 @@ shared as links on LinkedIn and in email:
   screenshot as the image when one exists; otherwise
   `assets/images/og-default.png`.
 - Canonical URL on each page.
-- Favicon set: `favicon.svg`, `favicon.ico`, `apple-touch-icon.png`.
+- Favicon set: `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png`.
+  PNG rather than ICO: every current browser accepts a PNG icon, and PNG
+  can be generated from the SVG with no extra tooling.
 - `<meta name="viewport">` and `lang="en"` on `<html>`.
 
 ## Visual Design
