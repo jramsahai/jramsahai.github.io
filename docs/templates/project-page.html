@@ -1,0 +1,104 @@
+<!--
+  HOW TO ADD A PROJECT
+
+  1. Copy this file to /projects/<slug>/index.html. The slug is lowercase,
+     hyphenated, and never changes once published (it is the public URL).
+  2. Replace every PROJECT TITLE, ONE-LINE DESCRIPTION, <slug>, YEAR, and the
+     body paragraphs. Keep the three h2 headings.
+  3. In the project-meta list, set data-tag to "vidyard" or "personal" and
+     the visible text to "Vidyard" or "Personal".
+  4. Update <title>, description, canonical, og:url, og:title,
+     og:description. Point og:image at a project screenshot if there is one,
+     otherwise leave og-default.png.
+  5. Put images in /assets/images/<slug>/ as WebP exported at 2x, under
+     300 KB each, with width and height attributes set to the file's pixel
+     size. Images below the first screen get loading="lazy".
+  6. Add a card to the <ul class="project-grid"> in /index.html. If this is
+     the first project, create the list and delete the <p class="empty">.
+     Card markup:
+
+     <li class="project-card" data-tag="vidyard">
+       <a href="/projects/<slug>/">
+         <h3>PROJECT TITLE</h3>
+         <p>ONE-LINE DESCRIPTION</p>
+         <span class="tag">Vidyard</span>
+       </a>
+     </li>
+
+  7. Vidyard projects: keep text and screenshots generic unless the site
+     owner has approved more detail for this specific project. Screenshots of
+     internal tools, customer names, metrics, or unreleased UI need the same
+     approval as text.
+  8. Delete this comment block from the copy.
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PROJECT TITLE</title>
+  <meta name="description" content="ONE-LINE DESCRIPTION">
+  <link rel="canonical" href="https://jramsahai.github.io/projects/<slug>/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="PROJECT TITLE">
+  <meta property="og:description" content="ONE-LINE DESCRIPTION">
+  <meta property="og:url" content="https://jramsahai.github.io/projects/<slug>/">
+  <meta property="og:image" content="https://jramsahai.github.io/assets/images/og-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/">Jivan Ramsahai</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <article>
+      <header class="hero hero-compact">
+        <h1>PROJECT TITLE</h1>
+        <p class="lede">ONE-LINE DESCRIPTION</p>
+        <ul class="project-meta">
+          <li data-tag="vidyard">Vidyard</li>
+          <li>Product manager</li>
+          <li>YEAR</li>
+        </ul>
+      </header>
+
+      <div class="prose">
+        <h2>What it is</h2>
+        <p>Two or three sentences on the problem and the thing that was built to address it. Written for someone who has never heard of it.</p>
+
+        <figure>
+          <img src="/assets/images/<slug>/cover.webp" width="1600" height="1000" alt="Describe what the screenshot shows, in one sentence.">
+          <figcaption>One line of context for the image.</figcaption>
+        </figure>
+
+        <h2>My role</h2>
+        <p>What you personally did: the decisions you owned, who you worked with, and what you were responsible for.</p>
+
+        <h2>Outcomes</h2>
+        <p>How it turned out. Shipped or not, what changed, what you would do differently. Public numbers only unless approved.</p>
+      </div>
+
+      <a class="back" href="/#projects-heading">Back to all projects</a>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul>
+        <li><a href="mailto:you@example.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/your-handle">LinkedIn</a></li>
+        <li><a href="https://github.com/jramsahai">GitHub</a></li>
+      </ul>
+      <p>&copy; 2026 Jivan Ramsahai</p>
+    </div>
+  </footer>
+</body>
+</html>
