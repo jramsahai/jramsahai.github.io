@@ -11,9 +11,14 @@ incrementally, one at a time, after the initial site skeleton is in place.
 
 ## Hosting & Repo
 
-- Repo: `jramsahai/jramsahai.github.io` (public). The repo must be named
-  exactly this for GitHub to serve it at the apex user URL. Local checkout:
+- Repo: `jramsahai/jramsahai.github.io`. The repo must be named exactly
+  this for GitHub to serve it at the apex user URL. Local checkout:
   `~/github/jramsahai.github.io`.
+- **Currently private and unpublished (since 2026-09-17).** GitHub does not
+  allow Pages to be switched off on a user-site repo, so the repo was made
+  private, which takes the site down. To launch: make the repo public.
+  Pages re-enables itself and rebuilds from `main` within a minute or two.
+  Do not make it public until the owner says so.
 - Hosting: GitHub Pages, "Deploy from a branch", `main` branch, `/ (root)`
   folder. No GitHub Actions workflow to maintain.
 - Live URL: `https://jramsahai.github.io`.
