@@ -264,6 +264,10 @@ main > .section:first-child {
   margin-top: var(--space-5);
 }
 
+.prose > * + figure {
+  margin-top: var(--space-4);
+}
+
 .empty {
   font-family: var(--font-serif);
   font-style: italic;
@@ -418,7 +422,8 @@ figure {
   margin: var(--space-4) 0;
 }
 
-figure img {
+figure img,
+figure video {
   border: 1px solid var(--line);
 }
 

@@ -10,7 +10,7 @@
   <meta property="og:title" content="View Explorer">
   <meta property="og:description" content="A graph explorer that shows how viewers move between videos in an internal video library">
   <meta property="og:url" content="https://jramsahai.github.io/projects/view-explorer/">
-  <meta property="og:image" content="https://jramsahai.github.io/assets/images/og-default.png">
+  <meta property="og:image" content="https://jramsahai.github.io/assets/images/view-explorer/og.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
@@ -38,11 +38,32 @@
       </header>
 
       <div class="prose">
+        <figure>
+          <video autoplay muted loop playsinline controls preload="metadata" poster="/assets/images/view-explorer/demo-poster.webp" width="1600" height="740" aria-label="Screen recording of the View Explorer graph rotating, then a node being selected to open its ego-graph and detail panel">
+            <source src="/assets/images/view-explorer/demo.mp4" type="video/mp4">
+          </video>
+          <figcaption>Rotating the 3D graph, then selecting a node to open its ego-graph and detail panel. Names and metrics are hidden.</figcaption>
+        </figure>
+        <script>
+          (function () {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+              var v = document.currentScript.previousElementSibling.querySelector('video');
+              if (v) { v.removeAttribute('autoplay'); v.pause(); }
+            }
+          })();
+        </script>
+
         <h2>The problem</h2>
         <p>A video library is usually browsed one video at a time, through search or folders, which makes it hard to see the bigger picture: which videos actually lead viewers to which other videos, and why. Watch counts and completion rates describe a single video in isolation, but they don't show the paths people take across a library, or which videos quietly serve as the entry point into it.</p>
 
         <h2>The solution</h2>
         <p>I built a graph where nodes are videos and edges are the real transitions viewers made between them, weighted by engagement depth rather than a simple click count: a blend of how much of the video was watched, the longest continuous viewing streak, and overall attention. The graph renders in both 2D and 3D, with a toggle between the two, and nodes that act as entry points into the library are marked with a halo, brighter for videos that attract more first-time viewers. Clicking a node opens an ego-graph focused on it, with an inline video player at the top of the detail panel and lists of the videos that feed into it and the videos viewers go to next.</p>
+
+        <figure>
+          <img src="/assets/images/view-explorer/node-detail.webp" loading="lazy" width="1600" height="796" alt="Ego-graph view for a selected node, with a detail panel on the right showing the video, its metrics, and inbound and outbound paths">
+          <figcaption>The detail panel for a selected node. Names and metrics are hidden.</figcaption>
+        </figure>
+
         <p>One deliberate choice was to keep only one video playing at a time: selecting a new node remounts the player against that video, paused on its poster frame, rather than letting multiple players accumulate. A pruning slider also lets you dial low-weight edges back into view, which is how you find bridge videos, the ones that otherwise look like they belong to a single cluster but actually connect two separate parts of the library.</p>
 
         <h2>Tech stack</h2>
