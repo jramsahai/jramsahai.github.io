@@ -17,6 +17,7 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/carousel.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -43,6 +44,41 @@
 
         <h2>The solution</h2>
         <p>I built an analysis toolkit that joins video view data with CRM exports (contacts, companies, and deals) to answer a handful of concrete questions: did a deal have video views before it progressed, how does pipeline created from video compare to revenue actually closed, which videos and which reps are most associated with influenced deals, and how do AI-generated avatar videos compare to conventionally recorded ones. A deal counts as video-influenced if a known contact viewed a video within a 30-day window running from before the deal was created through its close date, simple enough to explain to a stakeholder in one sentence.</p>
+
+        <section class="carousel" data-autoplay aria-roledescription="carousel" aria-label="Screenshots of the generated reports">
+          <div class="carousel-slides">
+            <figure class="carousel-slide" aria-roledescription="slide" aria-label="1 of 4">
+              <img src="/assets/images/video-impact-reports/hub.webp" loading="lazy" width="1600" height="1761" alt="Dashboard hub page with headline totals for video views, deals influenced, pipeline created and time saved, above five cards linking to the individual reports">
+              <figcaption>
+                <span class="carousel-title">Dashboard hub</span>
+                The starting point: headline totals for views, influenced deals, pipeline and time saved, with a card linking to each of the five reports.
+              </figcaption>
+            </figure>
+            <figure class="carousel-slide" aria-roledescription="slide" aria-label="2 of 4">
+              <img src="/assets/images/video-impact-reports/pipeline-vs-revenue.webp" loading="lazy" width="1600" height="1202" alt="Bar charts comparing video-influenced pipeline with closed revenue by deal count, dollar value and conversion rate, with a key insight box on the conversion gap">
+              <figcaption>
+                <span class="carousel-title">Pipeline vs revenue</span>
+                Video-influenced deals make up most of the pipeline but convert to revenue at a much lower rate.
+              </figcaption>
+            </figure>
+            <figure class="carousel-slide" aria-roledescription="slide" aria-label="3 of 4">
+              <img src="/assets/images/video-impact-reports/top-videos.webp" loading="lazy" width="1600" height="1202" alt="Horizontal bar chart ranking the five videos that influenced the most deals, with views per deal for each and a key insight box">
+              <figcaption>
+                <span class="carousel-title">Top videos</span>
+                Content ranked by the number of deals it influenced, alongside how many views each deal needed.
+              </figcaption>
+            </figure>
+            <figure class="carousel-slide" aria-roledescription="slide" aria-label="4 of 4">
+              <img src="/assets/images/video-impact-reports/avatar-vs-recorded.webp" loading="lazy" width="1600" height="1202" alt="Bar charts comparing AI avatar and recorded videos on deals influenced, win rate and production time saved, with a key insight box">
+              <figcaption>
+                <span class="carousel-title">Avatar vs recorded</span>
+                AI-generated and conventionally recorded videos compared on deal influence, win rate and production time saved.
+              </figcaption>
+            </figure>
+          </div>
+          <p class="carousel-note">All reports generated from a demo dataset.</p>
+        </section>
+
         <p>Since view data is an imperfect proxy and reasonable people can disagree about attribution rules, I paired the analysis with a validation suite that checks the numbers against known, hand-verified examples before anything goes to a stakeholder. I also chose to render the output as self-contained HTML dashboards with no external dependencies, so a report can be handed to someone as a single file and opened offline.</p>
 
         <h2>Tech stack</h2>
