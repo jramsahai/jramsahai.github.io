@@ -591,6 +591,22 @@ figure.portrait video {
   }
 }
 
+/* Portrait carousel (phone screenshots): cap the image at a phone-like width, caption beside it,
+   controls lined up under the image. */
+.carousel-portrait .carousel-slide img {
+  max-width: 20rem;
+}
+
+@media (min-width: 48rem) {
+  .carousel-portrait .carousel-slide {
+    grid-template-columns: minmax(0, 20rem) minmax(0, 1fr);
+  }
+
+  .carousel-portrait .carousel-controls {
+    max-width: 20rem;
+  }
+}
+
 figcaption {
   margin-top: var(--space-1);
   font-family: var(--font-mono);
