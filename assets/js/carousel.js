@@ -144,8 +144,19 @@
     });
     slidesEl.addEventListener('pointercancel', function () { tracking = false; });
 
-    root.addEventListener('mouseenter', function () { hovering = true; sync(); });
-    root.addEventListener('mouseleave', function () { hovering = false; sync(); });
+    // Use pointer events instead of mouseenter/mouseleave: a tap fires a
+    // synthetic mouseenter with no matching mouseleave, which would stall
+    // autoplay on touch devices.
+    root.addEventListener('pointerenter', function (e) {
+      if (e.pointerType !== 'mouse') return;
+      hovering = true;
+      sync();
+    });
+    root.addEventListener('pointerleave', function (e) {
+      if (e.pointerType !== 'mouse') return;
+      hovering = false;
+      sync();
+    });
     root.addEventListener('focusin', function () { focused = true; sync(); });
     root.addEventListener('focusout', function (e) {
       if (!root.contains(e.relatedTarget)) { focused = false; sync(); }

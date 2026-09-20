@@ -14,12 +14,45 @@
      Private repos: delete the item. Never link to a private repo.
   6. Update <title>, description, canonical, og:url, og:title,
      og:description. Point og:image at a project screenshot if there is one,
-     otherwise leave og-default.png.
+     otherwise leave og-default.png. The <title> keeps the " - Jivan Ramsahai"
+     suffix (only the project title part changes); og:title stays the bare
+     project name.
   7. Put images in /assets/images/<slug>/ as WebP exported at 2x, under
      300 KB each, with width and height attributes set to the file's pixel
      size. Images below the first screen get loading="lazy". Delete the
      <figure> if there is no image yet.
-  8. Add a card to the <ul class="project-grid"> in /index.html. Cards are
+  8. Video (optional): export an MP4 (H.264, no audio track, encoded with
+     "-movflags +faststart") plus a WebP poster, both in
+     /assets/images/<slug>/. Use this canonical markup, copied from
+     projects/wayfinder/index.html, replacing the paths, dimensions and
+     text with the real ones. The figure, its figcaption, and the inline
+     reduced-motion script that directly follows must all stay together in
+     that order; the script must stay inline because it has to run before
+     autoplay begins. Add class="portrait" to the figure for phone video.
+
+     <figure>
+       <video autoplay muted loop playsinline controls preload="metadata" poster="/assets/images/<slug>/demo-poster.webp" width="WIDTH" height="HEIGHT" aria-label="Describe what the recording shows.">
+         <source src="/assets/images/<slug>/demo.mp4" type="video/mp4">
+       </video>
+       <figcaption>One line of context for the recording.</figcaption>
+     </figure>
+     <script>
+       (function () {
+         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+           var v = document.currentScript.previousElementSibling.querySelector('video');
+           if (v) { v.removeAttribute('autoplay'); v.pause(); }
+         }
+       })();
+     </script>
+
+  9. Carousel (optional, for three or more screenshots): copy the
+     <section class="carousel"> block from projects/video-impact-reports/index.html
+     (landscape) or projects/blasterscribe/index.html (portrait, which adds
+     the carousel-portrait class), then repeat its carousel-slide figure for
+     each screenshot. Keep every slide's aria-label="N of TOTAL" in step with
+     the final slide count. Also add
+     <script src="/assets/js/carousel.js" defer></script> to the <head>.
+  10. Add a card to the <ul class="project-grid"> in /index.html. Cards are
      hand-ordered, most impressive first. Card markup (drop the badge-ai span
      for non-AI projects):
 
@@ -34,18 +67,21 @@
        </a>
      </li>
 
-  9. Vidyard projects: keep text and screenshots generic unless the site
+  11. Vidyard projects: keep text and screenshots generic unless the site
      owner has approved more detail for this specific project. Screenshots of
      internal tools, customer names, metrics, internal hostnames, or
      unreleased UI need the same approval as text.
-  10. Delete this comment block from the copy.
+  12. Run "python3 scripts/check.py" from the repo root and fix anything it
+     reports.
+  13. Delete this comment block from the copy.
 -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PROJECT TITLE</title>
+  <meta name="theme-color" content="#0A0A0A">
+  <title>PROJECT TITLE - Jivan Ramsahai</title>
   <meta name="description" content="ONE-LINE DESCRIPTION">
   <link rel="canonical" href="https://jramsahai.github.io/projects/<slug>/">
   <meta property="og:type" content="article">
