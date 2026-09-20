@@ -17,6 +17,7 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/carousel.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -34,6 +35,7 @@
           <li data-tag="personal">Personal</li>
           <li>Builder</li>
           <li>2026</li>
+          <li><a href="https://nerdnight.startingline.digital/">nerdnight.startingline.digital</a></li>
         </ul>
       </header>
 
@@ -43,6 +45,33 @@
 
         <h2>The solution</h2>
         <p>Nerd Night lets one person set up an event with a short list of candidate dates and share a single link with the group. Anyone with the link joins by typing their name and tapping the dates that work for them, no account required, and everyone watching the link sees results update live as votes come in.</p>
+
+        <section class="carousel carousel-portrait" data-autoplay aria-roledescription="carousel" aria-label="Screenshots of the Nerd Night app">
+          <div class="carousel-slides">
+            <figure class="carousel-slide" aria-roledescription="slide" aria-label="1 of 3">
+              <img src="/assets/images/nerd-night/create-event.webp" loading="lazy" width="800" height="1736" alt="Nerd Night create-event screen: an event name field above a monthly calendar with four October dates highlighted, and a Create Event button below">
+              <figcaption>
+                <span class="carousel-title">Create an event</span>
+                Name the event and tap the candidate dates on a custom touch-friendly calendar built for multi-date selection.
+              </figcaption>
+            </figure>
+            <figure class="carousel-slide" aria-roledescription="slide" aria-label="2 of 3">
+              <img src="/assets/images/nerd-night/vote.webp" loading="lazy" width="800" height="1736" alt="Nerd Night voting screen for an event called Friday Game Night, with a name field and four date options, two of them checked, above a Submit Vote button">
+              <figcaption>
+                <span class="carousel-title">Vote from the shared link</span>
+                Anyone with the link types a name and checks the dates that work for them. No account required.
+              </figcaption>
+            </figure>
+            <figure class="carousel-slide" aria-roledescription="slide" aria-label="3 of 3">
+              <img src="/assets/images/nerd-night/results.webp" loading="lazy" width="800" height="1736" alt="Nerd Night results screen showing total votes, a highlighted tie for the best date, and each date with its vote count and the names of the people who chose it">
+              <figcaption>
+                <span class="carousel-title">Live results</span>
+                A running tally for each date, with who picked it and the leading date or dates called out. Here two dates are tied.
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+
 
         <p>One deliberate choice: the organizer manages the event, closing voting, renaming it, deleting it, through a cookie-based admin session rather than an admin token embedded in the shared link. A token in the URL ends up sitting in browser history, where anyone with access to the device could find it; a cookie-based session avoids that. Participant names are encrypted at rest, and abuse prevention relies on rate limiting rather than requiring anyone to sign up. Events that go quiet clean themselves up automatically after 90 days.</p>
 
