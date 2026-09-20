@@ -39,6 +39,21 @@
       </header>
 
       <div class="prose">
+        <figure>
+          <video autoplay muted loop playsinline controls preload="metadata" poster="/assets/images/wayfinder/demo-poster.webp" width="1600" height="926" aria-label="Screen recording of Wayfinder: a question is typed into the chat panel, the answer comes back as a timestamped moment, the player jumps to that moment and pauses when it ends, then a related video is opened from the results">
+            <source src="/assets/images/wayfinder/demo.mp4" type="video/mp4">
+          </video>
+          <figcaption>Asking "Tell me about CTAs": the player jumps to the matching moment, pauses when it ends, then a related video opens from the library. Shortened and sped up in places; the presenter's face is blurred.</figcaption>
+        </figure>
+        <script>
+          (function () {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+              var v = document.currentScript.previousElementSibling.querySelector('video');
+              if (v) { v.removeAttribute('autoplay'); v.pause(); }
+            }
+          })();
+        </script>
+
         <h2>The problem</h2>
         <p>Video demos are made to be watched start to finish, but viewers usually want one specific part: the pricing screen, the integration step, the feature someone mentioned. Scrubbing through a timeline to find it is slow, and it gets worse once there are dozens of videos to search through instead of one.</p>
 
