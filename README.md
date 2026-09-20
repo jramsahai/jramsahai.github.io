@@ -16,7 +16,14 @@ python3 -m http.server 8000
 Then open <http://localhost:8000/>. Asset paths are root-absolute, so the
 server must be started from the repo root.
 
+## Checks
+
+Run `python3 scripts/check.py` before pushing. It checks for shared
+header/footer/head drift between pages, broken internal links, image
+dimensions that don't match the real file, and leftover template
+placeholders.
+
 ## Publishing
 
 Push to `main`. GitHub Pages rebuilds within about a minute. `_config.yml`
-keeps `docs/` and this README out of the published site.
+keeps `docs/`, this README, and `scripts/` out of the published site.
