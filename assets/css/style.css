@@ -415,6 +415,11 @@ figure video {
   border: 1px solid var(--line);
 }
 
+/* Portrait media (phone video): cap the width so it doesn't fill the container */
+figure.portrait video {
+  max-width: min(100%, 22.5rem);
+}
+
 figcaption {
   margin-top: var(--space-1);
   font-family: var(--font-mono);
