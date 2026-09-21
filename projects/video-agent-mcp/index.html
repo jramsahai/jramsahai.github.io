@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0A0A0A">
+  <title>Video Agent MCP - Jivan Ramsahai</title>
+  <meta name="description" content="Generate personalized AI avatar videos by asking Claude for them in plain language">
+  <link rel="canonical" href="https://jramsahai.github.io/projects/video-agent-mcp/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Video Agent MCP">
+  <meta property="og:description" content="Generate personalized AI avatar videos by asking Claude for them in plain language">
+  <meta property="og:url" content="https://jramsahai.github.io/projects/video-agent-mcp/">
+  <meta property="og:image" content="https://jramsahai.github.io/assets/images/og-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/">Jivan Ramsahai - Product Builder Portfolio</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <article>
+      <header class="hero hero-compact">
+        <h1>Video Agent MCP</h1>
+        <p class="lede">Generate personalized AI avatar videos by asking Claude for them in plain language</p>
+        <ul class="project-meta">
+          <li data-tag="vidyard">Work</li>
+          <li>Product manager</li>
+          <li>2025</li>
+          <li class="badge-ai">AI project</li>
+        </ul>
+      </header>
+
+      <div class="prose">
+        <figure>
+          <video autoplay muted loop playsinline controls preload="metadata" poster="/assets/images/video-agent-mcp/demo-poster.webp" width="1180" height="900" aria-label="Screen recording of a Claude Desktop conversation: a request for a follow-up video triggers tool calls that list campaigns and start a video, Claude asks for a missing company name before starting a second video, a status question returns a finished video, a freestyle request produces a custom script, and the finished videos appear in a Vidyard campaign">
+            <source src="/assets/images/video-agent-mcp/demo.mp4" type="video/mp4">
+          </video>
+          <figcaption>Asking Claude for a follow-up video, an intro video, a status check, and a freestyle roast, then the finished videos in the Vidyard campaign. Shortened and sped up; the video link is blurred.</figcaption>
+        </figure>
+        <script>
+          (function () {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+              var v = document.currentScript.previousElementSibling.querySelector('video');
+              if (v) { v.removeAttribute('autoplay'); v.pause(); }
+            }
+          })();
+        </script>
+
+        <h2>The problem</h2>
+        <p>Vidyard can generate personalized AI avatar videos from campaign templates: pick a campaign, fill in variables like a first name and a company, and a video comes back a few minutes later. Doing that by hand means opening the campaign tool, knowing which campaign fits and which variables it needs, then checking back until the video is done. That is a lot of steps for someone who just met a lead and wants to send a quick follow-up.</p>
+
+        <h2>The solution</h2>
+        <p>I built an MCP server that lets Claude do all of that from a conversation. It gives Claude three tools: list the available campaigns and the variables each one needs, generate a video, and check on a video's status. A request like "I just met Devon at a conference, create a follow-up video" is enough. Claude looks through the campaigns, picks the one that fits, fills in the variables, and starts the video. If something required is missing, such as the lead's company, it asks before generating. A freestyle campaign takes this further: Claude writes the whole script itself and the avatar delivers it.</p>
+        <p>Videos take a few minutes to render, so nothing waits on them. Each request is stored as a job, and a webhook marks the job complete when the video is ready. Asking "is the video for Devon ready?" runs a fuzzy match of that question against the user's recent jobs and returns the watch link, so nobody has to keep track of a job ID.</p>
+
+        <h2>Tech stack</h2>
+        <p>The MCP server is a thin TypeScript adapter of about 200 lines that speaks MCP to Claude Desktop and forwards each tool call over HTTPS. The real logic lives in a small serverless API that handles authentication, campaign lookup, variable validation, rate limiting, job tracking in Redis, and the completion webhook. Keeping the adapter thin meant the same API could sit behind any other client later.</p>
+        <ul class="stack">
+          <li>TypeScript</li>
+          <li>Node.js</li>
+          <li>MCP SDK</li>
+          <li>Zod</li>
+          <li>Claude Desktop</li>
+          <li>Vercel serverless</li>
+          <li>Redis</li>
+        </ul>
+      </div>
+
+      <a class="back" href="/#projects-heading">Back to all projects</a>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul>
+        <li><a href="https://www.linkedin.com/in/jramsahai/">LinkedIn</a></li>
+        <li><a href="https://github.com/jramsahai">GitHub</a></li>
+      </ul>
+      <p>&copy; 2026 Jivan Ramsahai</p>
+    </div>
+  </footer>
+</body>
+</html>
