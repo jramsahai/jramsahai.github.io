@@ -18,6 +18,7 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/carousel.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -45,7 +46,69 @@
         <h2>The solution</h2>
         <p>Barcode Critters is a scan-to-collect game where every real product barcode determines a creature. Scanning a barcode, or typing its digits on a number pad, triggers the Number Spectacle: the digits appear one at a time, each gets its official EAN-13 weight, the running sum builds on screen, and the check-digit formula resolves in front of you before the digits turn into a creature. The barcode's own math is the proof that the creature is legitimate, and a kid who scans enough of them starts predicting the last digit before the animation gets there.</p>
 
+        <figure class="portrait">
+          <video autoplay muted loop playsinline controls preload="metadata" poster="/assets/images/barcode-critters/demo-poster.webp" width="540" height="1172" aria-label="Screen recording of Barcode Critters: a barcode is typed on the number pad, the digits slam onto the screen and prove their own check digit, a Psychic creature called Bakednort is revealed, added to the Dex, and then fed for its first taste of XP">
+            <source src="/assets/images/barcode-critters/demo.mp4" type="video/mp4">
+          </video>
+          <figcaption>Typing a barcode, watching the Number Spectacle prove its check digit, catching the critter, and feeding it.</figcaption>
+        </figure>
+        <script>
+          (function () {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+              var v = document.currentScript.previousElementSibling.querySelector('video');
+              if (v) { v.removeAttribute('autoplay'); v.pause(); }
+            }
+          })();
+        </script>
+
         <p>Every part of a creature comes from the barcode itself rather than a random seed: stats are sums of digit groups, element comes from a digit sum, rarity comes from the check digit, and homeland comes from the real GS1 country prefix encoded in the first digits. Every formula that produces those values is printed on the creature's card, so nothing is asserted without being checkable by hand. Scanning the same product always produces the same creature, which matters more for trust than for gameplay.</p>
+
+        <section class="carousel carousel-portrait" data-autoplay aria-roledescription="carousel" aria-label="Screenshots of the Barcode Critters app">
+          <div class="carousel-slides">
+            <figure class="carousel-slide" aria-roledescription="slide" aria-label="1 of 6">
+              <img src="/assets/images/barcode-critters/enter-barcode.webp" loading="lazy" width="800" height="1736" alt="Barcode Critters number pad with the barcode 044000001728 entered in the display, a note reading check digit 8 matches, and a green confirm button">
+              <figcaption>
+                <span class="carousel-title">Enter a barcode</span>
+                Type the digits on a big number pad, or scan them with the camera. The check digit is verified as you type, before the game starts.
+              </figcaption>
+            </figure>
+            <figure class="carousel-slide" aria-roledescription="slide" aria-label="2 of 6">
+              <img src="/assets/images/barcode-critters/number-spectacle.webp" loading="lazy" width="800" height="1736" alt="The Number Spectacle: thirteen digits laid out in two rows with their weights beside them, a running sum of 32, the formula 10 minus 32 mod 10, mod 10 equals 8, and a green check mark next to the digit 8">
+              <figcaption>
+                <span class="carousel-title">The Number Spectacle</span>
+                Each digit gets its EAN-13 weight, the running sum builds on screen, and the check-digit formula resolves before the digits turn into a creature. A 12-digit UPC-A like this one is padded to EAN-13 first.
+              </figcaption>
+            </figure>
+            <figure class="carousel-slide" aria-roledescription="slide" aria-label="3 of 6">
+              <img src="/assets/images/barcode-critters/creature-card.webp" loading="lazy" width="800" height="1736" alt="Creature card for a Psychic, Epic critter called Bakednort with a United States flag, the product name it came from, and HP, power, speed and defense stats with the sum behind each one printed underneath">
+              <figcaption>
+                <span class="carousel-title">A creature from the barcode</span>
+                Stats, element, rarity and homeland all come from the digits, and the formula behind each stat is printed on the card. The product name is looked up in Open Food Facts after the reveal.
+              </figcaption>
+            </figure>
+            <figure class="carousel-slide" aria-roledescription="slide" aria-label="4 of 6">
+              <img src="/assets/images/barcode-critters/first-taste.webp" loading="lazy" width="800" height="1736" alt="The Bakednort card after tapping I ate it, with the XP bar at 90 out of 100 and the button now reading First Taste, plus 90 XP, beside a Release button">
+              <figcaption>
+                <span class="carousel-title">Feed it to power it up</span>
+                The first serving earns +90 XP, a base gain plus a first-taste bonus, and repeat servings ease off from there without ever reaching zero.
+              </figcaption>
+            </figure>
+            <figure class="carousel-slide" aria-roledescription="slide" aria-label="5 of 6">
+              <img src="/assets/images/barcode-critters/dex.webp" loading="lazy" width="800" height="1736" alt="The Dex screen showing a Team Power total of 84 with its formula, three goals with progress counts, and caught critters grouped under their home countries, starting with the United States">
+              <figcaption>
+                <span class="carousel-title">The Dex</span>
+                Team Power is shown with its formula, and every critter you catch is filed under its home country.
+              </figcaption>
+            </figure>
+            <figure class="carousel-slide" aria-roledescription="slide" aria-label="6 of 6">
+              <img src="/assets/images/barcode-critters/world-map.webp" loading="lazy" width="800" height="1736" alt="World map screen reading 6 of 63 countries discovered, with a grid of flags grouped by continent in which the United States, the UK, France and Germany are in full colour and the rest are faded">
+              <figcaption>
+                <span class="carousel-title">The world map</span>
+                Every country a barcode can come from is a flag tile that lights up once a critter from there is caught.
+              </figcaption>
+            </figure>
+          </div>
+        </section>
 
         <p>Feeding a critter the real food it came from increases its power on a curve that eases off with repeat servings but never bottoms out at zero, so there is always a reason to feed a favorite again. There are no timers, no hunger, and no decay, and nothing a kid can do to lose a creature short of releasing it on purpose, and because generation is deterministic, releasing and rescanning just brings the same creature back. Product enrichment such as name and photo loads in the background after the reveal, so a slow connection never holds up the moment the creature appears.</p>
 
