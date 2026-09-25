@@ -40,10 +40,10 @@
 
       <div class="prose">
         <h2>The problem</h2>
-        <p>Pasting a video link into Slack normally just leaves a bare URL sitting in the message. Whoever sees it has to click through and wait for a page to load before they know what the video is even about. Vidyard's video platform supports rich previews on other surfaces, but nothing automatically brought that same preview into an internal Slack workspace.</p>
+        <p>For Vidyard videos, pasting a video link into Slack normally just leaves a bare URL sitting in the message. Whoever sees it has to click through and wait for a page to load before they can consume the content. Vidyard's video platform supports rich previews on other surfaces like social media, but nothing automatically brought that same preview into an internal Slack workspace.</p>
 
         <h2>The solution</h2>
-        <p>I built a Slack bot that watches for Vidyard video links and replaces the bare URL with a rich, playable preview: title, description, thumbnail, and an embedded player, pulled from Vidyard's video platform the moment a link is shared. It runs as a small backend service that verifies each Slack request is genuine and responds quickly enough that the preview feels like a native part of the message.</p>
+        <p>I built a Slack bot that listens for Vidyard video links and replaces the bare URL with a rich, playable preview: title, description, thumbnail, and an embedded player, pulled from Vidyard's video platform as soon as a link is shared. It runs as a small backend service that verifies each Slack request is genuine and responds quickly enough that the preview feels like a native part of the message.</p>
 
         <figure>
           <img src="/assets/images/slack-unfurl/unfurl-preview.webp" loading="lazy" width="504" height="379" alt="Slack message containing a Vidyard link, unfurled below it into a card with the video's title, description, and a playable thumbnail">
@@ -52,10 +52,10 @@
 
         <p>Because anyone in the workspace can paste a link, the bot checks who is asking before it fetches anything: guest accounts and external Slack Connect users are excluded, and any video marked secure or private is skipped rather than unfurled, so nothing meant to stay internal ends up rendered in a channel.</p>
 
-        <p>It also protects Vidyard's video platform itself. An in-memory rate limiter tracks API usage across two overlapping time windows so the bot can never exhaust the account's quota, and when a request would cross that line, the bot just skips the unfurl rather than queuing or retrying it. A preview that shows up after everyone has already moved past the message isn't worth showing at all.</p>
+        <p>It also protects Vidyard's video platform itself. An in-memory rate limiter tracks API usage across two overlapping time windows so the bot can never exhaust the account's API quota, and when a request would cross that line, the bot just skips the unfurl rather than queuing or retrying it.</p>
 
         <h2>Tech stack</h2>
-        <p>The bot is a lightweight backend service that subscribes to Slack's link-sharing events and calls out to Vidyard's video platform to fetch preview data for each one, deployed as a standalone process rather than a bundled app.</p>
+        <p>The bot is a lightweight backend service that subscribes to Slack's link-sharing events and calls out to Vidyard's video platform to fetch preview data for each one, deployed as a standalone process rather than a bundled app. The videos are rendered using Slack's blocks.</p>
         <ul class="stack">
           <li>TypeScript</li>
           <li>Node.js</li>

@@ -30,7 +30,7 @@
     <article>
       <header class="hero hero-compact">
         <h1>View Explorer</h1>
-        <p class="lede">A graph explorer that shows how viewers move between videos in an internal video library</p>
+        <p class="lede">A graph explorer that shows how viewers move between videos in a video library</p>
         <ul class="project-meta">
           <li data-tag="vidyard">Work</li>
           <li>Product manager</li>
@@ -65,7 +65,7 @@
           <figcaption>The detail panel for a selected node. Names and metrics are hidden.</figcaption>
         </figure>
 
-        <p>One deliberate choice was to keep only one video playing at a time: selecting a new node remounts the player against that video, paused on its poster frame, rather than letting multiple players accumulate. A pruning slider also lets you dial low-weight edges back into view, which is how you find bridge videos, the ones that otherwise look like they belong to a single cluster but actually connect two separate parts of the library.</p>
+        <p>Only one video plays at a time: selecting a new node remounts the player against that video, paused on its poster frame, rather than letting multiple players accumulate. A pruning slider also lets you dial low-weight edges back into view, which is how you find bridge videos, the ones that otherwise look like they belong to a single cluster but actually connect two separate parts of the library.</p>
 
         <h2>Tech stack</h2>
         <p>An ingest step turns raw viewing data into a graph artifact, which a small web app then renders as an interactive, WebGL-based visualization with an embedded video player.</p>

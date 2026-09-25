@@ -42,7 +42,7 @@
 
       <div class="prose">
         <h2>The problem</h2>
-        <p>Foam-dart blaster hobbyists often own dozens of blasters built on very different mechanisms: spring-loaded, electric, flywheel, high-pressure air, and string-fired. Each type has its own specs worth tracking, and hobbyists also chronograph their blasters to measure shot velocity. There's no purpose-built way to keep any of that organized, so people fall back to spreadsheets or scattered notes, or just don't track it at all.</p>
+        <p>Foam-dart blaster hobbyists often own dozens of blasters built on very different mechanisms: spring-loaded, flywheel, high pressure air, and string-fired. Each type has its own specs worth tracking, and hobbyists also chronograph their blasters to measure performance stats like shot velocity and rate of fire. There's no purpose-built way to keep any of that organized, so people fall back to spreadsheets or scattered notes, or just don't track it at all.</p>
 
         <h2>The solution</h2>
         <p>Blasterscribe is a cross-platform app for cataloging a blaster collection. Each entry adapts its fields to the blaster's type, so a springer shows barrel and spring specs while a flywheel shows motor and cage specs, and a high-pressure air blaster shows pressure and tank specs. Users can also log chronograph sessions shot by shot, and the app computes stats like min, max, average, and standard deviation, and renders them as charts.</p>
@@ -72,7 +72,7 @@
             </figure>
           </div>
         </section>
-        <p>One design decision that shaped the data model: every user's data is scoped to that user, and this is enforced server-side through Firestore security rules rather than left to the client to respect. The app also includes a COPPA-compliant age gate and requires explicit consent to terms of service and privacy policy before anyone can create an account.</p>
+        <p>One design decision that shaped the data model: every user's data is scoped to that user, and this is enforced server-side through Firestore security rules rather than left to the app client to respect. The app also includes a COPPA-compliant age gate and requires explicit consent to terms of service and privacy policy before anyone can create an account.</p>
 
         <h2>Tech stack</h2>
         <p>A Flutter mobile app backed entirely by Firebase, with separate staging and production Firebase projects so changes to security rules and cloud functions get tested before they reach real user data.</p>

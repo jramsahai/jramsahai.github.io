@@ -31,7 +31,7 @@
     <article>
       <header class="hero hero-compact">
         <h1>Nerd Night</h1>
-        <p class="lede">A mobile-first app that helps a friend group pick a date for a get-together, no accounts needed</p>
+        <p class="lede">A mobile-first app that helps a friend group pick a date for a get-together, exploring account-free interaction</p>
         <ul class="project-meta">
           <li data-tag="personal">Personal</li>
           <li>Builder</li>
@@ -74,7 +74,7 @@
         </section>
 
 
-        <p>One deliberate choice: the organizer manages the event, closing voting, renaming it, deleting it, through a cookie-based admin session rather than an admin token embedded in the shared link. A token in the URL ends up sitting in browser history, where anyone with access to the device could find it; a cookie-based session avoids that. Participant names are encrypted at rest, and abuse prevention relies on rate limiting rather than requiring anyone to sign up. Events that go quiet clean themselves up automatically after 90 days.</p>
+        <p>One deliberate choice: the organizer manages the event, closing voting, renaming it, deleting it, through a cookie-based admin session rather than an admin token embedded in the shared link. A token in the URL ends up sitting in browser history, where anyone with access to the device could find it; a cookie-based session avoids this. Participant names are encrypted at rest, and abuse prevention relies on rate limiting rather than requiring anyone to sign up. Events that go quiet clean themselves up automatically after 90 days.</p>
 
         <h2>Tech stack</h2>
         <p>A React front end talks to Firebase Cloud Functions for all writes, with Cloud Firestore as the data store and Firebase Hosting serving the app. A custom touch-friendly calendar handles multi-date selection, since off-the-shelf date pickers don't handle mobile multi-select well.</p>

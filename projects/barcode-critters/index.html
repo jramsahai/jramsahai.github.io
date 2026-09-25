@@ -41,10 +41,10 @@
 
       <div class="prose">
         <h2>The problem</h2>
-        <p>Collector-style games for kids are usually built around randomness or in-app purchases, which does not reward paying attention or doing math. I have a numbers-loving 7-year-old who is into flags and geography, and wanted a game built from things already lying around the house rather than a loot table. A product barcode is already a small, checkable math problem, but nobody ever looks at it that way.</p>
+        <p>Collector-style games for kids are usually built around randomness or in-app purchases, which does not reward paying attention or demonstrating intentional decision making, particularly about food. I have a picky-eating, numbers-loving 7-year-old who is into flags and geography, and wanted a game built from things already lying around the house rather than a loot game. A product barcode is already a small, checkable math problem, so it's a great way to incentivize engagement with a wider variety of foods.</p>
 
         <h2>The solution</h2>
-        <p>Barcode Critters is a scan-to-collect game where every real product barcode determines a creature. Scanning a barcode, or typing its digits on a number pad, triggers the Number Spectacle: the digits appear one at a time, each gets its official EAN-13 weight, the running sum builds on screen, and the check-digit formula resolves in front of you before the digits turn into a creature. The barcode's own math is the proof that the creature is legitimate, and a kid who scans enough of them starts predicting the last digit before the animation gets there.</p>
+        <p>Barcode Critters is a scan-to-collect game where every real product barcode determines a creature. Scanning a barcode, or typing its digits on a number pad, triggers a number spectacle. The digits appear one at a time, each gets its official EAN-13 weight, the running sum builds on screen, and the check-digit formula resolves in front of you before the digits turn into a creature. The barcode's own math is the proof that the creature is legitimate.</p>
 
         <figure class="portrait">
           <video autoplay muted loop playsinline controls preload="metadata" poster="/assets/images/barcode-critters/demo-poster.webp" width="540" height="1172" aria-label="Screen recording of Barcode Critters: a barcode is typed on the number pad, the digits slam onto the screen and prove their own check digit, a Psychic creature called Bakednort is revealed, added to the Dex, and then fed for its first taste of XP">
@@ -110,7 +110,7 @@
           </div>
         </section>
 
-        <p>Feeding a critter the real food it came from increases its power on a curve that eases off with repeat servings but never bottoms out at zero, so there is always a reason to feed a favorite again. There are no timers, no hunger, and no decay, and nothing a kid can do to lose a creature short of releasing it on purpose, and because generation is deterministic, releasing and rescanning just brings the same creature back. Product enrichment such as name and photo loads in the background after the reveal, so a slow connection never holds up the moment the creature appears.</p>
+        <p>Feeding a critter the real food it came from increases its power on a curve that eases off with repeat servings but never bottoms out at zero, so there is always a reason to feed a favourite again. There are no timers, no hunger, and no decay, and nothing a kid can do to lose a creature short of releasing it on purpose, and because generation is deterministic, releasing and rescanning just brings the same creature back. Product enrichment such as name and photo loads in the background after the reveal, so a slow connection never holds up the moment the creature appears.</p>
 
         <h2>Tech stack</h2>
         <p>The app is a client-only, offline-first PWA: the deterministic game logic runs entirely on device, camera scanning falls back gracefully when the browser's native barcode API is unavailable, and product data is layered in afterward from a public catalog.</p>
