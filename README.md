@@ -3,7 +3,6 @@
 Personal portfolio site. Plain static HTML/CSS served by GitHub Pages from
 the `main` branch root. No build step.
 
-- Design spec: `docs/superpowers/specs/2026-09-17-portfolio-site-design.md`
 - Project page template: `docs/templates/project-page.html` (the comment at
   the top of that file is the full procedure for adding a project)
 
